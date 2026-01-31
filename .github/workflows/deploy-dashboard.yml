@@ -34,6 +34,28 @@ jobs:
           REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
           echo "name=$REPO_NAME" >> $GITHUB_OUTPUT
       
+      - name: Remove API routes for static export
+        run: |
+          cd dashboard/app
+          # Remove API routes (they don't work in static export)
+          rm -rf api
+      
+      - name: Create simple static page
+        run: |
+          cd dashboard/app
+          # Replace page.tsx with simple static version
+          cat > page.tsx << 'EOF'
+          export default function Dashboard() {
+            return (
+              <div style={{ fontFamily: 'system-ui', maxWidth: '800px', margin: '0 auto', padding: '2rem', textAlign: 'center' }}>
+                <h1>Trading Agent Dashboard</h1>
+                <p>Base API verification page.</p>
+                <p>The full dashboard runs on the Hetzner server.</p>
+              </div>
+            )
+          }
+          EOF
+      
       - name: Build
         run: |
           cd dashboard

@@ -10,6 +10,8 @@ const nextConfig = {
   // GitHub Pages base path (dynamically set from REPO_NAME env var)
   basePath: process.env.GITHUB_PAGES === 'true' && process.env.REPO_NAME ? `/${process.env.REPO_NAME}` : '',
   assetPrefix: process.env.GITHUB_PAGES === 'true' && process.env.REPO_NAME ? `/${process.env.REPO_NAME}` : '',
+  // Skip API routes for static export (they don't work in static export)
+  // API routes are only used on Hetzner server, not GitHub Pages
 }
 
 module.exports = nextConfig
