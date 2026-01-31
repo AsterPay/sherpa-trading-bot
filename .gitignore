@@ -1,0 +1,41 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+data/
+*.db
+*.db-shm
+*.db-wal
+
+# Logs
+logs/
+*.log
+
+# Dependencies
+node_modules/
+dashboard/node_modules/
+
+# Build outputs
+dist/
+dashboard/.next/
+dashboard/out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Trading flags
+stop_trading.flag
+
+# Secrets
+*.pem
+*.key
+secrets/

@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  trading-agent:
+    build: .
+    container_name: trading-agent
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    networks:
+      - trading-network
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile.dashboard
+    container_name: trading-dashboard
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    networks:
+      - trading-network
+    depends_on:
+      - trading-agent
+
+networks:
+  trading-network:
+    driver: bridge

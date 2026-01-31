@@ -1,0 +1,28 @@
+{
+  "name": "moltbook-trading-agent",
+  "version": "2.0.0",
+  "description": "Moltbook explorer + Trading agent with 3 strategies",
+  "main": "trading-agent.ts",
+  "scripts": {
+    "trade": "npx ts-node trading-agent.ts",
+    "explore": "npx ts-node moltbook-api-explorer.ts",
+    "explore:local": "npx ts-node moltbook-explorer-agent.ts",
+    "start": "npx ts-node trading-agent.ts"
+  },
+  "dependencies": {
+    "typescript": "^5.3.0",
+    "ts-node": "^10.9.0",
+    "@types/node": "^20.0.0",
+    "sql.js": "^1.10.3",
+    "@types/sql.js": "^1.4.5",
+    "ethers": "^6.9.0",
+    "dotenv": "^16.4.5",
+    "ws": "^8.16.0",
+    "@types/ws": "^8.5.10",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
+  }
+}
